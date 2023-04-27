@@ -37,6 +37,7 @@ section{
     justify-content: space-between;
     padding: 2rem 9%;
 }
+.logo a {all:unset;}
 
 .logo{
     color: var(--black);
