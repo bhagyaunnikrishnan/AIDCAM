@@ -31,12 +31,13 @@ section{
 }
 
 .header{
-    background: #eee;
+    background: #CFD8DC;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem 9%;
 }
+
 .logo a {all:unset;}
 
 .logo{
@@ -58,17 +59,19 @@ section{
 
 .navbar a{
     display: inline-block;
-    font-size: 18px;
-    color:var(--black);
+    color: #273746;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 18px;
     margin-left: 35px;
+    transition: all 0.5s ease;
+    position: relative;
 }
 
+.navbar a.active,
 .navbar a:hover {
-    background: linear-gradient(45deg, #1a2a6c,#b21f1f, #fdbb2d);
-
-
+    background: linear-gradient(45deg, #f06,blue);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 } 
+
