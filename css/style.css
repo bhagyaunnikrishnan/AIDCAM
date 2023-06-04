@@ -70,7 +70,8 @@ section{
 
 .navbar a.active,
 .navbar a:hover {
-    background: linear-gradient(45deg, #f06,blue);
+    /*background: linear-gradient(45deg, #f06,blue);*/
+    background: linear-gradient(45deg, #0099f7, #f11712);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 } 
