@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDCAM</title>
+
+    <!-- Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!-- Header section starts-->
+    <header class="header">
+        <div class="logo">
+            <a href="#"><i class='bx bxs-cctv'></i></i>AIDCAM</a>
+        </div>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#settings">Settings</a>
+        </nav>
+    </header>
+        <form action="">
+            <div class="div1">
+                <h1>SELECT OPTION</h1>
+                <br>
+                <input type="file" name="image" id="imageInput" hidden>
+                <button type="button" class="button" id="imageBtn">Image</button><br><br>
+                <input type="file" name="video" id="videoInput" hidden>
+                <button type="button" class="button" id="videoBtn">Video</button><br><br>
+                <input type="file" name="camera" id="cameraInput" hidden>
+                <button type="button" class="button" id="cameraBtn">Camera</button>
+            </div>
+            <div class="div2">
+                <h1>PREVIEW</h1>
+                <br>
+                <div class="result">
+                    <img src="" alt="preview image" id="previewImg" width="700" height="400" hidden>
+                    <video src="" id="previewVideo" width="700" height="400" autoplay controls hidden></video>
+                    <button type="submit" class="button" id="submitBtn" style="visibility: hidden;">Submit</button>
+                </div>
+            </div>
+        </form>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+django
+ultralytics==8.0.20
