@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDCAM</title>
+
+    <!-- Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+     <!-- font awesome cdn link  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+     <!-- custom css file link  -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header section starts-->
+    <header class="header">
+        <div class="logo">
+            <a href="#"><i class='bx bxs-cctv'></i></i>AIDCAM</a>
+        </div>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#settings">Settings</a>
+        </nav>
+    </header>
+    <!----
+    <div class="grid-container">
+        <div class="item1">cam1</div>
+        <div class="item2">cam2</div>
+        <div class="item3">cam3</div>  
+        <div class="item4">cam4</div>
+        <div class="item5">cam5</div>
+        <div class="item6">cam6</div>
+        <div class="item7">cam7</div>
+        <div class="item8">8</div>  
+        <div class="item9">cam9</div>
+        <div class="item10">cam10</div>
+        <div class="item11">cam11</div>
+        <div class="item12">cam12</div>
+        <div class="item13">cam13</div>
+        <div class="item14">cam14</div>
+        <div class="item15">cam15</div>
+      </div>   -->
+
+    <div class="maindiv">
+        <div class="div1">
+        <h1>SELECT OPTION</h1>
+        <br>
+        <button class="button">Video</button><br><br>
+        <button class="button">Image</button><br><br>
+        <button class="button">Camera</button>
+        <!----
+        <form>
+            <input type="file" id="myFile" name="filename" class="button">
+            
+      </div>
+      <br>
+      <input type="submit" class="button">
+      </form>-->
+      </div>
+      
+      </div><!--maindiv-->
+
+
+
+    <!-- custom js file link -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
