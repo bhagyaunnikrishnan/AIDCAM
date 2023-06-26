@@ -33,27 +33,57 @@
             <a href="#settings">Settings</a>
         </nav>
     </header>
-        <form action="">
-            <div class="div1">
-                <h1>SELECT OPTION</h1>
-                <br>
-                <input type="file" name="image" id="imageInput" hidden>
-                <button type="button" class="button" id="imageBtn">Image</button><br><br>
-                <input type="file" name="video" id="videoInput" hidden>
-                <button type="button" class="button" id="videoBtn">Video</button><br><br>
-                <input type="file" name="camera" id="cameraInput" hidden>
-                <button type="button" class="button" id="cameraBtn">Camera</button>
+    {% if image %}
+    <div class="div2" style="margin-top: 50px;">
+        <h1>RESULT</h1>
+        <br>
+        <div class="result">
+            <img src="{{image}}" alt="result image" id="resultImg" width="700" height="400">
+        </div>
+    </div>
+    {% elif video %}
+    <div class="div2" style="margin-top: 50px;">
+        <h1>RESULT</h1>
+        <br>
+        <div class="result">
+            <video name="media" id="previewVideo" width="700" height="400" controls autoplay muted>
+                <source src="{% static 'video/output.webm' %}" type="video/webm">
+            </video>
+        </div>
+    </div>
+    {% else %}
+    <form action="/" method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="div1">
+            <h1>SELECT OPTION</h1>
+            <br>
+            <input type="file" name="image" id="imageInput" hidden>
+            <button type="button" class="button" id="imageBtn">Image</button><br><br>
+            <input type="file" name="video" id="videoInput" hidden>
+            <button type="button" class="button" id="videoBtn">Video</button><br><br>
+            <input type="file" name="camera" id="cameraInput" hidden>
+            <button type="button" class="button" id="cameraBtn">Camera</button>
+            <div class="switch-wrapper">
+                <h3>LIVE MODE</h3>
+                <label class="switch">
+                    <input type="checkbox" name="check" id="check">
+                    <span class="slider round"></span>
+                </label>
             </div>
-            <div class="div2">
-                <h1>PREVIEW</h1>
-                <br>
-                <div class="result">
-                    <img src="" alt="preview image" id="previewImg" width="700" height="400" hidden>
-                    <video src="" id="previewVideo" width="700" height="400" autoplay controls hidden></video>
-                    <button type="submit" class="button" id="submitBtn" style="visibility: hidden;">Submit</button>
-                </div>
+        </div>
+        <div class="div2">
+            <h1>PREVIEW</h1>
+            <br>
+            <div class="result">
+                <img src="" alt="preview image" id="previewImg" width="700" height="400" hidden>
+                <video name="media" id="previewVideo" width="700" height="400" controls autoplay muted hidden>
+                    <source src="" type="video/webm">
+                </video>
+                <button type="submit" class="button" id="submitBtn" style="visibility: hidden;">Submit</button>
             </div>
-        </form>
+        </div>
+    </form>
+    {% endif %}
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 
