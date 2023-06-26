@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+AUTH_TOKEN = os.getenv('Twilio_auth_token')
+ACC_SID = os.getenv('Twilio_account_sid')
+PH_NO = os.getenv('Twilio_phone_number')
+MY_PH_NO = os.getenv('Twilio_my_phone_number')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/

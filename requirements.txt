@@ -1,2 +1,4 @@
 django
-ultralytics==8.0.20
+ultralytics
+pillow
+python-dotenv
