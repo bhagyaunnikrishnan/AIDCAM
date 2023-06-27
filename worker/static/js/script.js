@@ -50,5 +50,24 @@ videoBtn.addEventListener('click', () => {
 });
 
 cameraBtn.addEventListener('click', () => {
-    cameraInput.click();
+    const preview = document.getElementById('previewVideo');
+    let { mediaDevices } = navigator;
+    preview.muted = true;
+
+    // Accessing the user camera and video.
+    mediaDevices
+        .getUserMedia({
+            video: true,
+            audio: true,
+        })
+        .then((stream) => {
+
+            // Changing the source of video to current stream.
+            preview.srcObject = stream;
+
+                preview.removeAttribute('hidden');
+                preview.play();
+
+        })
+        .catch(alert);
 });
