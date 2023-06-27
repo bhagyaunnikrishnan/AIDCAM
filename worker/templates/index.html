@@ -39,6 +39,9 @@
         <br>
         <div class="result">
             <img src="{{image}}" alt="result image" id="resultImg" width="700" height="400">
+            {% if accident %}
+                <h3 style="font-size: 20px;">Accident Detected</h3>
+            {% endif %}
         </div>
     </div>
     {% elif video %}

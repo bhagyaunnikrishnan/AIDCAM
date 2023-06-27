@@ -64,3 +64,19 @@ def notify_accident():
     )
 
     print(message.sid)
+
+
+def video_dectect_camera(video_source = 0):
+    cap = cv2.VideoCapture(video_source)
+    while cap.isOpened():
+        success, frame = cap.read()
+        if not success:
+            break
+        results = model(frame)
+        annotated_frame = results[0].plot()
+        cv2.imshow("frame", annotated_frame)
+        if cv2.waitKey(1) & 0xFF == ord("q"):
+            break
+    cap.release()
+
+# video_dectect_camera()
