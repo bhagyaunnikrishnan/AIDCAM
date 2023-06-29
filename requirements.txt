@@ -2,3 +2,5 @@ django
 ultralytics
 pillow
 python-dotenv
+twilio
+whitenoise[brotli]
