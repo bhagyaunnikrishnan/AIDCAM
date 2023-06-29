@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+
 from pathlib import Path
 from dotenv import load_dotenv
 import os
@@ -27,12 +28,19 @@ MY_PH_NO = os.getenv('Twilio_my_phone_number')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gof4wzi2qfbkh(646alam)9h_*wsdv+hv^t8%4$9pz*i2&(wd4'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='thisisahugesecret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'HEROKU' not in os.environ
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
+if HEROKU_EXTERNAL_HOSTNAME := os.environ.get('HEROKU_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append(HEROKU_EXTERNAL_HOSTNAME)
+
 
 
 # Application definition
@@ -49,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
